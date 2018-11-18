@@ -32,6 +32,7 @@ const inputElement = document.querySelector('input[type="file"]');
 // create a FilePond instance at the input element location
 const pond = FilePond.create( inputElement, {'labelTapToUndo':'Tap ⓧ to upload new photo',
     'labelIdle':'Drag & Drop person photo or <span class="filepond--label-action"> Browse </span>'});
+window.pond = pond;
 
 const pond_root = document.querySelector('.filepond--root');
 const intro = document.getElementById('intro');
