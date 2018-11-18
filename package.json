@@ -1,0 +1,35 @@
+{
+  "name": "faces-demo",
+  "version": "0.0.1",
+  "description": "Age & Gender recognition demo",
+  "author": "Arthur Suilin <asuilin@gmail.com> (http://suilin.me)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "autoprefixer": "^7.1.5",
+    "bulma": "^0.6.0",
+    "cssnano": "^4.1.7",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.3",
+    "parcel-bundler": "^1.10.3",
+    "postcss-cli": "^4.1.1"
+  },
+  "scripts": {
+    "b_css-deploy": "npm run css-build && npm run css-postcss",
+    "b_css-build": "node-sass _sass/main.scss css/main.css",
+    "b_css-postcss": "postcss --use autoprefixer --output css/main.css css/main.css",
+    "b_css-watch": "npm run css-build -- --watch",
+    "b_pre-deploy": "npm run css-deploy && npm run js-build",
+    "b_js-build": "babel _javascript --out-dir lib",
+    "b_js-watch": "npm run js-build -- --watch",
+    "b_start": "npm-run-all --parallel css-watch js-watch",
+    "b_deploy": "npm run pre-deploy && parcel build index.html",
+    "start": "parcel index.html",
+    "deploy": "parcel build index.html"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.1.6",
+    "filepond": "^3.3.2"
+  }
+}

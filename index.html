@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Age & Gender recognition demo</title>
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <link rel="stylesheet" href="_sass/main.scss">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" href="favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+    <section class="hero is-primary has-bg-img">
+      <div class="hero-body" style="background: rgba(0,0,0, .666);">
+        <div class="container">
+          <div class="columns">
+            <div class="column is-8-desktop is-offset-2-desktop">
+              <h1 class="title is-2 is-spaced">
+                Age & Gender recognition demo
+              </h1>
+
+              <h2 class="subtitle is-4">
+                <a href="https://suilin.ru/project/gender_age" class="button is-primary">Project description</a>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8-desktop is-offset-2-desktop">
+            <div class="content">
+              <!-- We'll transform this input into a pond -->
+              <input type="file" class="filepond" required>
+
+              <!-- Load FilePond library -->
+              <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+              <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+              <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+              <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+              <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+              <div id="good_result" style="display: none">
+                <p class="is-size-3 has-text-centered"><b><span id="gender"></span></b> (probability&nbsp;<span id="gender_proba"></span>%)
+                  <br> age: <b><span id="age">42</span></b></p>
+                <p class="has-text-centered" style="margin-top: 1em;">
+                  <button class="button is-info is-medium" onclick="pond.browse()">Load another photo</button>
+                </p>
+              </div>
+              <div class="notification is-warning has-text-centered" id="bad_result" style="display: none">
+                <p class="is-spaced" id="error_msg">Face not detected or multiple faces present. Please use another photo.</p>
+                <button class="button is-info" onclick="pond.browse()">Try another</button>
+              </div>
+            </div>
+
+            <div class="content has-text-centered" id="intro">
+              Please upload photo where a single person looks towards the camera. Multiple persons not allowed.
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer has-text-centered">
+      <div class="container">
+         <div class="columns">
+          <div class="column is-8-desktop is-offset-2-desktop">
+            <div class="content is-small">
+              <p>Copyright (c) 2018, <a href="http://suilin.me">Arthur Suilin</a><br>
+            Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+            <p>
+              <a href="http://bulma.io">
+                <img src="made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+              </a>
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="_javascript/main.js"></script>
+  </body>
+</html>
