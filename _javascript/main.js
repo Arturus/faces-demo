@@ -14,7 +14,7 @@ FilePond.registerPlugin(
 FilePond.setOptions({
     allowRevert: true,
     dropOnPage: true,
-    maxFileSize:'3Mb',
+    maxFileSize:'10Mb',
     acceptedFileTypes:['image/png', 'image/jpeg'],
     server:{
         url: process.env.API_URL,
